@@ -1,12 +1,12 @@
 package Catalyst::Plugin::FormValidator::Simple;
 use strict;
 use base qw/Catalyst::Plugin::FormValidator/;
-# don't use parent module at all, but this is required for Catalyst::Plugin::FillInForm
+# doesn't use parent module at all, but this is required for Catalyst::Plugin::FillInForm
 
 use NEXT;
 require FormValidator::Simple;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub setup {
     my $self = shift;
@@ -22,11 +22,11 @@ sub prepare {
     my $c = shift;
     $c = $c->NEXT::prepare(@_);
     my $setting = $c->config->{validator};
-	my $options = $setting && exists $setting->{options}
-		? delete $setting->{options}
-		: {};
+    my $options = $setting && exists $setting->{options}
+    	? delete $setting->{options}
+    	: {};
     $c->{validator} = FormValidator::Simple->new(%$options);
-	return $c;
+    return $c;
 }
 
 sub form {
@@ -53,7 +53,7 @@ Catalyst::Plugin::FormValidator::Simple - Validator for Catalyst with FormValida
 
 =head1 SYNOPSIS
 
-    use Catalyst 'FormValidator::Simple';
+    use Catalyst qw/FormValidator::Simple FillInForm/;
 
     # set option
     MyApp->config->{validator} = {
@@ -61,7 +61,7 @@ Catalyst::Plugin::FormValidator::Simple - Validator for Catalyst with FormValida
         options => { charset => 'euc'},
     }
 
-in you controller
+in your controller
 
     sub defaulti : Private {
 
@@ -102,7 +102,7 @@ in you controller
             }
 
             if ( $c->form->invalid( param3 => 'MY_ERROR' ) ) {
-
+                ...
             }
 
         }

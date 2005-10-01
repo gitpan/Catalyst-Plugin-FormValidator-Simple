@@ -2,7 +2,7 @@ Changes
 lib/Catalyst/Plugin/FormValidator/Simple.pm
 Makefile.PL
 MANIFEST
-META.yml			Module meta-data (added by MakeMaker)
+META.yml    		Module meta-data (added by MakeMaker)
 README
 t/01_use.t
 t/02_pod.t
