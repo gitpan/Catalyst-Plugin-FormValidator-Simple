@@ -1,7 +1,7 @@
 # http://module-build.sourceforge.net/META-spec.html
 #XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
 name:         Catalyst-Plugin-FormValidator-Simple
-version:      0.03
+version:      0.04
 version_from: lib/Catalyst/Plugin/FormValidator/Simple.pm
 installdirs:  site
 requires:
@@ -10,4 +10,4 @@ requires:
     FormValidator::Simple:         0.02
 
 distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.30
+generated_by: ExtUtils::MakeMaker version 6.17
