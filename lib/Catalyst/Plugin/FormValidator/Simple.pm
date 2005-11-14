@@ -6,7 +6,7 @@ use base qw/Catalyst::Plugin::FormValidator/;
 use NEXT;
 require FormValidator::Simple;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 sub setup {
     my $self = shift;
@@ -33,15 +33,15 @@ sub form {
     my $c = shift;
     if ($_[0]) {
         my $form = $_[1] ? [@_] : $_[0];
-        $c->{form} = $c->{validator}->check($c->req->params, $form);
+        $c->{validator}->check($c->req->params, $form);
     }
-    return $c->{form};
+    return $c->{validator}->results;
 }
 
 sub set_invalid_form {
     my $c = shift;
     $c->{validator}->set_invalid(@_);
-    return $c->{form};
+    return $c->{validator}->results;
 }
 
 1;
@@ -87,7 +87,7 @@ in your controller
         if ( some condition... ) {
 
             # set your original invalid type.
-            $c->form->set_invalid_form( param3 => 'MY_ERROR' );
+            $c->set_invalid_form( param3 => 'MY_ERROR' );
 
         }
 

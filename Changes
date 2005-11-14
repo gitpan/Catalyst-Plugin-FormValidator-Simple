@@ -1,5 +1,9 @@
 Revision history for Perl extension Catalyst::Plugin::FormValidator::Simple.
 
+0.05  Mon Nov 14 08:54:00 2005
+    - fixed documentation
+      (Thanks to John Wang)
+
 0.04  Thu Oct 20 12:23:40 2005
     - fixed bug: option setting wasn't passed to validator.
 
