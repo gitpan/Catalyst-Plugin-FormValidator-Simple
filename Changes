@@ -1,5 +1,10 @@
 Revision history for Perl extension Catalyst::Plugin::FormValidator::Simple.
 
+0.06  Mon Nov 18 00:00:00 2005
+    - change the version of prerequired FormValidator::Simple.
+      Now this module requires FormValidator::Simple Version 0.10 or over.
+      And added many document and tutorials.
+
 0.05  Mon Nov 14 08:54:00 2005
     - fixed documentation
       (Thanks to John Wang)

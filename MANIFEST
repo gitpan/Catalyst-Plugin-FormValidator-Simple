@@ -6,4 +6,3 @@ META.yml			Module meta-data (added by MakeMaker)
 README
 t/01_use.t
 t/02_pod.t
-t/03_podcoverage.t
