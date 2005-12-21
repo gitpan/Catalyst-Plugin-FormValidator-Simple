@@ -6,7 +6,7 @@ use base qw/Catalyst::Plugin::FormValidator/;
 use NEXT;
 require FormValidator::Simple;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 sub setup {
     my $self = shift;
@@ -15,20 +15,22 @@ sub setup {
     my $plugins = $setting && exists $setting->{plugins}
         ? $setting->{plugins}
         : [];
-    FormValidator::Simple->import(@$plugins);
+        FormValidator::Simple->import(@$plugins);
     if ( $setting && exists $setting->{messages} ) {
-    FormValidator::Simple->set_messages( $setting->{messages} );
+        FormValidator::Simple->set_messages( $setting->{messages} );
+    }
+    if ( $setting && exists $setting->{options} ) {
+        FormValidator::Simple->set_option( %{ $setting->{options} } );
+    }
+    if ( $setting && exists $setting->{message_format} ) {
+        FormValidator::Simple->set_message_format( $setting->{message_format} );
     }
 }
 
 sub prepare {
     my $c = shift;
     $c = $c->NEXT::ACTUAL::prepare(@_);
-    my $setting = $c->config->{validator};
-    my $options = $setting && exists $setting->{options}
-    	? $setting->{options}
-    	: {};
-    $c->{validator} = FormValidator::Simple->new(%$options);
+    $c->{validator} = FormValidator::Simple->new;
     return $c;
 }
 
@@ -132,7 +134,7 @@ or
 
 =head2 PLUGINS
 
-If you want to use come plugins for FormValidator::Simple, you can set like follows.
+If you want to use some plugins for FormValidator::Simple, you can set like following.
 
     MyApp->config(
         validator => {
@@ -385,8 +387,11 @@ or YAML file. set file name
         },
     );
 
-and prepare yaml file like follows,
+and prepare yaml file like following,
 
+    DEFAULT:
+        name:
+            DEFAULT: name is invalid
     user:
         name:
             NOT_BLANK: Input name!
@@ -419,6 +424,19 @@ and set action-name as argument.
         <li>[% message %]</li>
         [% END %]
     </ul>
+    [% END %]
+
+you can set each message format
+
+    MyApp->config(
+        validator => {
+            messages => 'messages.yml',  
+            message_format => '<p>%s</p>'
+        },
+    );
+
+    [% IF c.form.has_error %]
+        [% c.form.messages('user').join("\n") %]
     [% END %]
 
 =head1 SEE ALSO

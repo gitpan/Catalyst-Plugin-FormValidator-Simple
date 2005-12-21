@@ -6,7 +6,7 @@ WriteMakefile(
     VERSION_FROM      => 'lib/Catalyst/Plugin/FormValidator/Simple.pm', # finds $VERSION
     PREREQ_PM         => {
         Catalyst => 5.30,
-        FormValidator::Simple => 0.10,
+        FormValidator::Simple => 0.13,
         Catalyst::Plugin::FormValidator => 0,
     }, # e.g., Module::Name => 1.1
 );
