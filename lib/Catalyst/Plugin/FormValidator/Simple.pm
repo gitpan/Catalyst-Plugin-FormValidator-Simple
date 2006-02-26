@@ -6,11 +6,11 @@ use base qw/Catalyst::Plugin::FormValidator/;
 use NEXT;
 require FormValidator::Simple;
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 sub setup {
     my $self = shift;
-    $self->NEXT::ACTUAL::setup(@_);
+    $self->NEXT::setup(@_);
     my $setting = $self->config->{validator};
     my $plugins = $setting && exists $setting->{plugins}
         ? $setting->{plugins}
@@ -20,7 +20,7 @@ sub setup {
         FormValidator::Simple->set_messages( $setting->{messages} );
     }
     if ( $setting && exists $setting->{options} ) {
-        FormValidator::Simple->set_option( %{ $setting->{options} } );
+        FormValidator::Simple->set_options( $setting->{options} );
     }
     if ( $setting && exists $setting->{message_format} ) {
         FormValidator::Simple->set_message_format( $setting->{message_format} );
@@ -29,7 +29,7 @@ sub setup {
 
 sub prepare {
     my $c = shift;
-    $c = $c->NEXT::ACTUAL::prepare(@_);
+    $c = $c->NEXT::prepare(@_);
     $c->{validator} = FormValidator::Simple->new;
     return $c;
 }
