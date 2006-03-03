@@ -1,8 +1,12 @@
 Revision history for Perl extension Catalyst::Plugin::FormValidator::Simple.
 
+0.09  Fri Mar 3 00:00:00 2006
+    - fixed pour mistake, when passing option setting.
+      (Thanks to Roman Filippov)
+
 0.08  Mon Feb 27 00:00:00 2006
     - Now, this doesn't use NEXT::ACTUAL.
-      That's make test-server not to work as expected on restarting.
+          That's make test-server not to work as expected on restarting.
 
 0.06  Mon Nov 18 00:00:00 2005
     - change the version of prerequired FormValidator::Simple.

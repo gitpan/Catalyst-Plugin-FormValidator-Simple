@@ -6,7 +6,7 @@ use base qw/Catalyst::Plugin::FormValidator/;
 use NEXT;
 require FormValidator::Simple;
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 sub setup {
     my $self = shift;
@@ -20,7 +20,7 @@ sub setup {
         FormValidator::Simple->set_messages( $setting->{messages} );
     }
     if ( $setting && exists $setting->{options} ) {
-        FormValidator::Simple->set_options( $setting->{options} );
+        FormValidator::Simple->set_option( %{ $setting->{options} } );
     }
     if ( $setting && exists $setting->{message_format} ) {
         FormValidator::Simple->set_message_format( $setting->{message_format} );
