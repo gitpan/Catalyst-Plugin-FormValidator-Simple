@@ -1,7 +1,12 @@
 Revision history for Perl extension Catalyst::Plugin::FormValidator::Simple.
 
+0.10  Mon May 15 00:00:00 2006
+    - bugfix: Now, it validates parameters correctly,
+      when they're set with $c->req->param on recent version of Catalyst.
+      (Thanks to luo.dongxiang)
+
 0.09  Fri Mar 3 00:00:00 2006
-    - fixed pour mistake, when passing option setting.
+    - fixed poor mistake, when passing option setting.
       (Thanks to Roman Filippov)
 
 0.08  Mon Feb 27 00:00:00 2006

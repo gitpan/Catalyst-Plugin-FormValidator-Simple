@@ -6,7 +6,7 @@ use base qw/Catalyst::Plugin::FormValidator/;
 use NEXT;
 require FormValidator::Simple;
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 sub setup {
     my $self = shift;
@@ -38,7 +38,7 @@ sub form {
     my $c = shift;
     if ($_[0]) {
         my $form = $_[1] ? [@_] : $_[0];
-        $c->{validator}->check($c->req->params, $form);
+        $c->{validator}->check($c->req, $form);
     }
     return $c->{validator}->results;
 }
