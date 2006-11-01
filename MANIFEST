@@ -6,3 +6,10 @@ META.yml			Module meta-data (added by MakeMaker)
 README
 t/01_use.t
 t/02_pod.t
+t/03_live_basic.t
+t/04_live_messages_hash.t
+t/05_live_messages_file.t
+t/conf/messages.yml
+t/lib/FVSTest/Basic.pm
+t/lib/FVSTest/MessagesFile.pm
+t/lib/FVSTest/MessagesHash.pm

@@ -1,5 +1,10 @@
 Revision history for Perl extension Catalyst::Plugin::FormValidator::Simple.
 
+0.11  Wed Nov  1 17:14:00 2006
+    - fixed to deal with messages file's path well.
+      now you can set relative filepath in mode_perl environment.
+      Thanks to Hideo Kimura.
+
 0.10  Mon May 15 00:00:00 2006
     - bugfix: Now, it validates parameters correctly,
       when they're set with $c->req->param on recent version of Catalyst.
