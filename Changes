@@ -1,9 +1,20 @@
 Revision history for Perl extension Catalyst::Plugin::FormValidator::Simple.
 
+0.12  Thu Nov  2 18:06:00 2006
+    - revert to ver 0.10.
+      When you use relative path on config-file,
+      it's better to write like follow example.
+
+      validator:
+        profiles: __path_to(profiles.yml)__
+        messages: __path_to(messages.yml)__
+
+      Thanks to TYPESTER and Hideo Kimura.
+
 0.11  Wed Nov  1 17:14:00 2006
     - fixed to deal with messages file's path well.
-      now you can set relative filepath in mode_perl environment.
-      Thanks to Hideo Kimura.
+      you can set relative filepath in mod_perl environment.
+      Thanks to Hideo Kimura
 
 0.10  Mon May 15 00:00:00 2006
     - bugfix: Now, it validates parameters correctly,

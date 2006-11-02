@@ -1,6 +1,0 @@
-test:
-  param1:
-    NOT_BLANK: param1notblankerror
-    INT: param1interror
-  param2:
-    NOT_BLANK: param2notlbankerror
