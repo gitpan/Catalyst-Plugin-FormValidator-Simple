@@ -1,5 +1,10 @@
 Revision history for Perl extension Catalyst::Plugin::FormValidator::Simple.
 
+0.13  Thu Sep  3 14:22:00 2009
+    - added message_decode_from option corresponding to
+      FormValidator::Simple set_message_decode_from option.
+      Thanks to Hu Hailin.
+
 0.12  Thu Nov  2 18:06:00 2006
     - revert to ver 0.10.
       When you use relative path on config-file,
