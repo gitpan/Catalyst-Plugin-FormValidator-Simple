@@ -3,14 +3,14 @@ use strict;
 use base qw/Catalyst::Plugin::FormValidator/;
 # doesn't use parent module at all, but this is required for Catalyst::Plugin::FillInForm
 
-use NEXT;
+use MRO::Compat;
 require FormValidator::Simple;
 
-our $VERSION = '0.13';
+our $VERSION = '0.14';
 
 sub setup {
     my $self = shift;
-    $self->NEXT::setup(@_);
+    $self->maybe::next::method(@_);
     my $setting = $self->config->{validator};
     my $plugins = $setting && exists $setting->{plugins}
         ? $setting->{plugins}
@@ -32,7 +32,7 @@ sub setup {
 
 sub prepare {
     my $c = shift;
-    $c = $c->NEXT::prepare(@_);
+    $c->maybe::next::method(@_);
     $c->{validator} = FormValidator::Simple->new;
     return $c;
 }
