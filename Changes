@@ -1,5 +1,8 @@
 Revision history for Perl extension Catalyst::Plugin::FormValidator::Simple.
 
+0.15  Tue Jul  13 14:04:00
+    - fixed issue pertinent to https://rt.cpan.org/Ticket/Display.html?id=58363
+
 0.14  Fri Jun  4 22:00:00
     - removed NEXT stuff
 

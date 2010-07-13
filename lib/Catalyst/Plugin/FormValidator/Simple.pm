@@ -6,7 +6,7 @@ use base qw/Catalyst::Plugin::FormValidator/;
 use MRO::Compat;
 require FormValidator::Simple;
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
 sub setup {
     my $self = shift;
@@ -32,7 +32,7 @@ sub setup {
 
 sub prepare {
     my $c = shift;
-    $c->maybe::next::method(@_);
+    $c = $c->maybe::next::method(@_);
     $c->{validator} = FormValidator::Simple->new;
     return $c;
 }
